@@ -1,52 +1,53 @@
-# Contributor Covenant Code of Conduct
+# Código de conducta para colaboradores
 
-## Our Pledge
+## Nuestro compromiso
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+Como miembros, colaboradores y responsables de esta comunidad, nos comprometemos a que la participación sea una experiencia libre de acoso para todas las personas, sin importar su edad, complexión, discapacidad visible o no visible, origen étnico, características sexuales, identidad o expresión de género, experiencia, educación, situación socioeconómica, nacionalidad, aspecto, raza, casta, color, religión, identidad u orientación sexual.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+Nos comprometemos a actuar y relacionarnos de forma que contribuyamos a crear una comunidad abierta, acogedora, diversa, inclusiva y saludable.
 
-## Our Standards
+## Normas de convivencia
 
-Examples of behavior that contributes to a positive environment for our community include:
+Ejemplos de conducta positiva:
 
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
-- Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-- Focusing on what is best not just for us as individuals, but for the overall community
+- Mostrar empatía y amabilidad.
+- Respetar opiniones, puntos de vista y experiencias diferentes.
+- Dar y aceptar con respeto comentarios constructivos.
+- Asumir la responsabilidad, disculparse con quienes se hayan visto afectados por nuestros errores y aprender de ellos.
+- Tener en cuenta el bienestar de toda la comunidad.
 
-Examples of unacceptable behavior include:
+No se aceptan, entre otras, estas conductas:
 
-- The use of sexualized language or imagery, and sexual attention or advances of any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or email address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- Lenguaje o imágenes de carácter sexual, así como insinuaciones o avances sexuales.
+- Provocaciones, insultos, comentarios despectivos o ataques personales o políticos.
+- Acoso público o privado.
+- Publicar información privada de otras personas, como su dirección física o correo electrónico, sin permiso explícito.
+- Cualquier otra conducta que pueda considerarse inapropiada en un entorno profesional.
 
-## Enforcement Responsibilities
+## Responsabilidades de moderación
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+Las personas responsables de la comunidad aclararán y harán cumplir estas normas, y tomarán medidas correctivas adecuadas y justas ante conductas que consideren inapropiadas, amenazantes, ofensivas o dañinas.
 
-Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
+Podrán retirar, editar o rechazar comentarios, confirmaciones, código, cambios en la wiki, incidencias y otras contribuciones que no respeten este código. Cuando corresponda, explicarán los motivos de moderación.
 
-## Scope
+## Ámbito
 
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces.
+Este código se aplica en todos los espacios de la comunidad y también cuando una persona la represente oficialmente en espacios públicos.
 
-## Enforcement
+## Cómo informar de un problema
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at **muksin.muksin04@gmail.com**. All complaints will be reviewed and investigated promptly and fairly.
+Puedes comunicar conductas abusivas, de acoso o inaceptables a las personas responsables de moderación en **muksin.muksin04@gmail.com**. Las denuncias se revisarán e investigarán con prontitud y equidad.
 
-All community leaders are obligated to respect the privacy and security of the reporter of any incident.
+Quienes moderen deben respetar la privacidad y seguridad de la persona que informa del incidente.
 
-## Enforcement Guidelines
+## Medidas de moderación
 
-1. **Correction**: A private, written warning, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.
-2. **Warning**: A warning with consequences for continued behavior. No interaction with the people involved for a specified period of time.
-3. **Temporary Ban**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time.
-4. **Permanent Ban**: A permanent ban from any sort of public interaction within the community.
+1. **Corrección:** aviso privado por escrito que explica la infracción y por qué la conducta fue inapropiada. Se puede solicitar una disculpa pública.
+2. **Advertencia:** aviso de las consecuencias si la conducta continúa. Puede incluir la prohibición temporal de interactuar con las personas afectadas.
+3. **Suspensión temporal:** prohibición temporal de interactuar o comunicarse públicamente con la comunidad.
+4. **Expulsión permanente:** prohibición permanente de participar en espacios públicos de la comunidad.
 
-## Attribution
+## Atribución
 
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1, available at <https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.
+Este código adapta la versión 2.1 del [Contributor Covenant](https://www.contributor-covenant.org), disponible en <https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.
+

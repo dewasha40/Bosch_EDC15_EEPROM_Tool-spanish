@@ -1,58 +1,59 @@
-# Contributing to the Bosch EDC15 EEPROM Tool
+# Cómo contribuir
 
-Thank you for taking the time to contribute! Every tested ECU, bug report, fix and idea makes this tool better for everyone who works on EDC15 control units.
+Gracias por colaborar. Cada centralita probada, informe de error, corrección e idea ayuda a mejorar esta herramienta para quienes trabajan con unidades EDC15.
 
-This project follows the [Code of Conduct](CODE_OF_CONDUCT.md). By taking part, you agree to uphold it.
+Este proyecto sigue el [Código de conducta](CODE_OF_CONDUCT.md). Al participar, aceptas respetarlo.
 
-## Ways to Contribute
+## Formas de colaborar
 
 | | |
 |---|---|
-| 🚗 **Report a tested ECU** | Tell us which ECU (Bosch part number, e.g. `0281010xxx`) and vehicle the tool worked on — or did not. |
-| 🐛 **Report a bug** | Describe what you did, what you expected and what happened. |
-| 💡 **Suggest a feature** | Explain the workshop task it would help with. |
-| 🔧 **Submit code** | Fixes, support for further EDC15 variants, user-interface improvements. |
-| 📝 **Improve the docs** | Clearer explanations, corrections, translations of the README. |
+| **Informar de una ECU probada** | Indica la referencia Bosch (por ejemplo, `0281010xxx`) y el vehículo, y explica si la herramienta funcionó. |
+| **Informar de un error** | Describe qué hiciste, qué esperabas y qué ocurrió. |
+| **Proponer una mejora** | Explica qué tarea de taller facilitaría. |
+| **Enviar código** | Correcciones, compatibilidad con otras variantes EDC15 o mejoras de interfaz. |
+| **Mejorar la documentación** | Aclaraciones, correcciones y traducciones del README. |
 
-## Reporting Bugs
+## Informar de errores
 
-Before opening an issue, please search the [existing issues](https://github.com/muki01/Bosch_EDC15_EEPROM_Tool/issues), then pick the matching form on the [new issue](https://github.com/muki01/Bosch_EDC15_EEPROM_Tool/issues/new/choose) page: **Bug report**, **ECU report** or **Feature request**. A good report includes:
+Antes de abrir una incidencia, busca en las [incidencias existentes](https://github.com/dewasha40/Bosch_EDC15_EEPROM_Tool-spanish/issues) y selecciona el formulario adecuado en la página para [crear una incidencia](https://github.com/dewasha40/Bosch_EDC15_EEPROM_Tool-spanish/issues/new/choose): **Error**, **Compatibilidad de ECU** o **Solicitud de mejora**. Incluye:
 
-- The tool version (shown in the title bar)
-- Windows version
-- The ECU: Bosch part number, software version and vehicle
-- What the tool showed: immobilizer, mileage, login code, VIN and any warning
-- Steps to reproduce the problem
+- La versión de la herramienta (aparece en la barra de título).
+- La versión de Windows.
+- La ECU: referencia Bosch, versión de software y vehículo.
+- Lo que mostró la herramienta: inmovilizador, kilometraje, código PIN, VIN y avisos.
+- Los pasos para reproducir el problema.
 
 > [!IMPORTANT]
-> **Do not attach EEPROM dumps publicly.** A dump contains the VIN, the immobilizer ID and the login code of a real vehicle. If a dump is needed to reproduce a problem, offer to send it privately, or replace these values first.
+> **No adjuntes volcados de EEPROM públicamente.** Incluyen el VIN, el identificador del inmovilizador y el código PIN de un vehículo real. Si se necesita el volcado para reproducir un problema, ofrece enviarlo de forma privada o sustituye antes esos datos.
 
-Found a security problem? Please follow the [Security Policy](SECURITY.md) and report it privately instead of opening an issue.
+Si encuentras un problema de seguridad, sigue la [Política de seguridad](SECURITY.md) y comunícalo de forma privada.
 
-## Development Workflow
+## Flujo de desarrollo
 
-1. **Fork** the repository and create a branch from `main`:
+1. Haz un fork del repositorio y crea una rama basada en `main`:
    ```bash
-   git checkout -b feature/my-improvement
+   git checkout -b feature/mi-mejora
    ```
-2. Make your changes, keeping them **focused**: one fix or feature per pull request.
-3. Run the tests and make sure the build has no warnings:
+2. Haz cambios concretos y acotados: una corrección o función por solicitud de cambios.
+3. Ejecuta las pruebas y comprueba que la compilación no genere avisos:
    ```bash
    dotnet build -c Release
    dotnet test
    ```
-4. **Add a test** when you change how the dump is read or written. The tests in `tests/` check every edit against the example dumps byte for byte.
-5. Commit with a clear message, e.g. `Show a warning when the login code copies differ`.
-6. Push and open a **pull request** against `main`. The pull request template asks what you changed and which ECU you tested on, and GitHub Actions builds and tests it automatically.
+4. Añade una prueba si cambias la lectura o escritura del volcado. Las pruebas de `tests/` comparan cada modificación byte a byte con los archivos de ejemplo.
+5. Usa un mensaje de confirmación claro, por ejemplo: `Avisar cuando difieran las copias del código PIN`.
+6. Sube la rama y abre una solicitud de cambios contra `main`. La plantilla pregunta qué has cambiado y en qué ECU lo has probado. GitHub Actions compila y prueba el proyecto automáticamente.
 
-## Coding Guidelines
+## Guía de estilo
 
-- Follow the existing style of the file you are editing: naming, indentation and comment density.
-- Keep the layers apart: `Core/Edc15Eeprom.cs` reads and writes bytes and has no UI code; `ViewModels/` holds the state of the window; the XAML only displays it.
-- Every value in the dump is stored twice. Read the first copy, write both, and never change bytes the user did not edit.
-- New offsets need a source (a datasheet, a documented dump or a tested ECU) mentioned in the pull request.
-- User-facing text is English, short and plain.
+- Sigue el estilo del archivo que edites: nombres, sangría y cantidad de comentarios.
+- Mantén separadas las capas: `Core/Edc15Eeprom.cs` lee y escribe bytes sin código de interfaz; `ViewModels/` contiene el estado de la ventana; XAML solo lo muestra.
+- Cada valor del volcado está duplicado. Lee la primera copia, escribe ambas y no cambies bytes que el usuario no haya editado.
+- En la solicitud de cambios, indica la fuente de las nuevas posiciones: documentación, un volcado documentado o una ECU probada.
+- Los textos visibles para el usuario de esta versión deben estar en español, ser breves y claros.
 
-## License
+## Licencia
 
-By contributing, you agree that your contributions are licensed under the [GNU General Public License v3.0](LICENSE), and that the author may also offer them under a commercial license.
+Al contribuir, aceptas que tus aportaciones se publiquen bajo la [GNU General Public License v3.0](LICENSE) y que el autor también pueda ofrecerlas bajo una licencia comercial.
+

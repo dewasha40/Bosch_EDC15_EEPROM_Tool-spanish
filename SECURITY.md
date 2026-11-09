@@ -1,32 +1,33 @@
-# Security Policy
+# Política de seguridad
 
-This tool changes the immobilizer status, login code and mileage stored in the EEPROM of an engine control unit. Security reports are therefore taken seriously.
+Esta herramienta modifica el estado del inmovilizador, el código PIN y el kilometraje almacenados en la EEPROM de una centralita de motor. Por eso, tratamos seriamente cualquier informe de seguridad.
 
-## Supported Versions
+## Versiones compatibles
 
-Security fixes are applied to the latest code on the `main` branch and to the most recent release.
+Las correcciones de seguridad se aplican al código más reciente de la rama `main` y a la versión publicada más reciente.
 
-## Reporting a Vulnerability
+## Cómo informar de una vulnerabilidad
 
-If you find a security issue, **please do not open a public issue**.
+Si encuentras un problema de seguridad, **no abras una incidencia pública**.
 
-Instead, email **muksin.muksin04@gmail.com** or use [private vulnerability reporting](https://github.com/muki01/Bosch_EDC15_EEPROM_Tool/security/advisories/new) with:
+Escribe a **muksin.muksin04@gmail.com** o utiliza el [formulario privado para vulnerabilidades](https://github.com/dewasha40/Bosch_EDC15_EEPROM_Tool-spanish/security/advisories/new). Incluye:
 
-- A description of the issue and its potential impact
-- Steps to reproduce (tool version, Windows version, ECU type)
-- A suggested fix, if you have one
+- Descripción del problema y su posible impacto.
+- Pasos para reproducirlo (versión de la herramienta, Windows y tipo de ECU).
+- Una posible corrección, si la tienes.
 
-Please **do not send a full EEPROM dump** unless it is needed to reproduce the problem. If it is, replace the VIN and immobilizer ID first or tell us and we will agree on a private way to share it.
+**No envíes el volcado completo de la EEPROM** salvo que sea necesario para reproducir el problema. Si lo es, sustituye primero el VIN y el identificador del inmovilizador o consúltanos para acordar un modo privado de compartirlo.
 
-You will receive a response as soon as possible, and credit in the release notes if you wish.
+Responderemos lo antes posible. Si lo deseas, incluiremos tu reconocimiento en las notas de la versión.
 
-## Downloads
+## Descargas
 
-- Only download the program from the [Releases](https://github.com/muki01/Bosch_EDC15_EEPROM_Tool/releases) page of this repository. Copies from other sites may be modified.
-- The executable is not code-signed, so Windows SmartScreen may show a warning the first time it runs. If you prefer, build the program from source as described in the README.
+- Descarga el programa desde la página de [versiones publicadas](https://github.com/muki01/Bosch_EDC15_EEPROM_Tool/releases) del proyecto original. Las copias de otros sitios podrían estar modificadas.
+- El ejecutable no está firmado digitalmente, por lo que Windows SmartScreen podría mostrar un aviso la primera vez. También puedes compilarlo desde el código fuente siguiendo el README.
 
-## Notes for Users
+## Recomendaciones
 
-- Always keep the original dump. The tool suggests a new file name when saving, but a backup on another drive is the safest choice.
-- An EEPROM dump contains the VIN, immobilizer ID and login code of a real car. Treat it like a key and do not share it in public issues or forums.
-- Use the tool only on vehicles you own or are authorised to work on, and in line with local law. Changing the recorded mileage of a vehicle to deceive a buyer is illegal in most countries.
+- Conserva siempre el volcado original. La herramienta propone un nombre nuevo al guardar, pero la opción más segura es guardar una copia de seguridad en otra unidad.
+- Un volcado EEPROM contiene el VIN, el identificador del inmovilizador y el código PIN de un vehículo real. Trátalo como una llave y no lo publiques en incidencias ni foros.
+- Usa la herramienta solo en vehículos propios o para los que tengas autorización, y respeta la legislación local. Modificar el kilometraje para engañar a un comprador es ilegal en la mayoría de países.
+
