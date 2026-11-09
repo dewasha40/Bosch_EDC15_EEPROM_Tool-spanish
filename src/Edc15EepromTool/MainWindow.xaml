@@ -7,7 +7,7 @@
         xmlns:b="clr-namespace:Edc15EepromTool.Behaviors"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
-        Title="EDC15 EEPROM Tool"
+        Title="Bosch EDC15 EEPROM Tool"
         Width="900" Height="580"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" ResizeMode="CanMinimize"
@@ -187,18 +187,18 @@
             </StackPanel>
 
             <Button Grid.Column="2" Style="{StaticResource GhostButton}" Command="{Binding AboutCommand}" Margin="0,0,10,0"
-                    WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="About (F1)" AutomationProperties.Name="About">
+                    WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Acerca de (F1)" AutomationProperties.Name="Acerca de">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="&#xE946;" Style="{StaticResource IconText}" FontSize="14"/>
-                    <TextBlock Text="About" Margin="8,0,0,0"/>
+                    <TextBlock Text="Acerca de" Margin="8,0,0,0"/>
                 </StackPanel>
             </Button>
 
             <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center">
                 <Button Style="{StaticResource TitleBarButton}" Content="&#xE921;" Click="Minimize_Click" Margin="0,0,4,0"
-                        WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize" AutomationProperties.Name="Minimize"/>
+                        WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimizar" AutomationProperties.Name="Minimizar"/>
                 <Button Style="{StaticResource CloseButton}" Content="&#xE8BB;" Click="Close_Click"
-                        WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close" AutomationProperties.Name="Close"/>
+                        WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Cerrar" AutomationProperties.Name="Cerrar"/>
             </StackPanel>
         </Grid>
 
@@ -234,21 +234,21 @@
                             <RowDefinition Height="8"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Selected file" Style="{StaticResource Caption}" FontSize="13" Margin="0,0,16,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Archivo seleccionado" Style="{StaticResource Caption}" FontSize="13" Margin="0,0,16,0" VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1" FontWeight="SemiBold" FontSize="14.5" TextTrimming="CharacterEllipsis" VerticalAlignment="Center">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Text" Value="{Binding FileName}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding HasFile}" Value="False">
-                                            <Setter Property="Text" Value="No file selected"/>
+                                            <Setter Property="Text" Value="Ningún archivo seleccionado"/>
                                             <Setter Property="Foreground" Value="{DynamicResource TextFaintBrush}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <TextBlock Grid.Row="2" Text="File location" Style="{StaticResource Caption}" FontSize="13" Margin="0,0,16,0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" Text="Ubicación" Style="{StaticResource Caption}" FontSize="13" Margin="0,0,16,0" VerticalAlignment="Center"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" FontSize="13" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" ToolTip="{Binding FilePath}">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
@@ -256,7 +256,7 @@
                                     <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding HasFile}" Value="False">
-                                            <Setter Property="Text" Value="Open a 512-byte EEPROM file, or drag it onto this window"/>
+                                            <Setter Property="Text" Value="Abre un archivo EEPROM de 512 bytes o arrástralo a esta ventana"/>
                                             <Setter Property="Foreground" Value="{DynamicResource TextFaintBrush}"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -272,7 +272,7 @@
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="VIN" Style="{StaticResource Caption}" FontSize="12"/>
                             <TextBlock Text="{Binding Vin}" FontFamily="{StaticResource MonoFont}" FontSize="13.5" Margin="0,3,0,10"/>
-                            <TextBlock Text="Immobilizer ID" Style="{StaticResource Caption}" FontSize="12"/>
+                            <TextBlock Text="ID del inmovilizador" Style="{StaticResource Caption}" FontSize="12"/>
                             <TextBlock Text="{Binding ImmobilizerId}" FontFamily="{StaticResource MonoFont}" FontSize="13.5" Margin="0,3,0,0"/>
                         </StackPanel>
                         <Border Width="34" Height="34" CornerRadius="11" Background="{DynamicResource WarningTintBrush}" Margin="18,0,0,0"
@@ -307,17 +307,17 @@
                                 <Border Style="{StaticResource IconBadge}" Background="{DynamicResource LoginCodeTintBrush}">
                                     <TextBlock Text="&#xE8D7;" Style="{StaticResource IconText}" Foreground="{DynamicResource LoginCodeBrush}" HorizontalAlignment="Center"/>
                                 </Border>
-                                <TextBlock Text="Login Code" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
+                                <TextBlock Text="Código PIN" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
                             </StackPanel>
                             <Border Style="{StaticResource ChangedPill}" Visibility="{Binding IsLoginCodeModified, Converter={StaticResource BoolToVis}}">
-                                <TextBlock Text="Changed" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
+                                <TextBlock Text="Modificado" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="1" VerticalAlignment="Center">
                             <TextBox Style="{StaticResource ValueInput}" MaxLength="5"
                                      Text="{Binding LoginCodeText, UpdateSourceTrigger=PropertyChanged}"
-                                     AutomationProperties.Name="Login code"
+                                     AutomationProperties.Name="Código PIN"
                                      Visibility="{Binding HasFile, Converter={StaticResource BoolToVis}}"
                                      b:InputAssist.DigitsOnly="True"
                                      b:InputAssist.LeadingZero="True"
@@ -330,15 +330,15 @@
                             <Grid>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                             Visibility="{Binding LoginCodeError, Converter={StaticResource HasValueToVis}, ConverterParameter=Invert}">
-                                    <TextBlock Text="Original value" Style="{StaticResource Caption}" FontSize="12.5"/>
+                                    <TextBlock Text="Valor original" Style="{StaticResource Caption}" FontSize="12.5"/>
                                     <TextBlock Text="{Binding LoginCodeOriginalText}" FontSize="12.5" FontWeight="SemiBold" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <TextBlock Text="{Binding LoginCodeError}" Style="{StaticResource Caption}" FontSize="12.5" Foreground="{DynamicResource DangerBrush}" VerticalAlignment="Center"
                                            Visibility="{Binding LoginCodeError, Converter={StaticResource HasValueToVis}}"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Button Style="{StaticResource IconButton}" Content="&#xE7A7;" Command="{Binding ResetLoginCodeCommand}" ToolTip="Restore the original login code"
-                                            Visibility="{Binding CanResetLoginCode, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restore the original login code"/>
-                                    <Button Style="{StaticResource IconButton}" Content="&#xE8C8;" Command="{Binding CopyLoginCodeCommand}" ToolTip="Copy the login code" AutomationProperties.Name="Copy the login code"/>
+                                    <Button Style="{StaticResource IconButton}" Content="&#xE7A7;" Command="{Binding ResetLoginCodeCommand}" ToolTip="Restaurar el código PIN original"
+                                            Visibility="{Binding CanResetLoginCode, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restaurar el código PIN original"/>
+                                    <Button Style="{StaticResource IconButton}" Content="&#xE8C8;" Command="{Binding CopyLoginCodeCommand}" ToolTip="Copiar el código PIN" AutomationProperties.Name="Copiar el código PIN"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
@@ -358,10 +358,10 @@
                                 <Border Style="{StaticResource IconBadge}" Background="{DynamicResource ImmoTintBrush}">
                                     <TextBlock Text="&#xE72E;" Style="{StaticResource IconText}" Foreground="{DynamicResource ImmoBrush}" HorizontalAlignment="Center"/>
                                 </Border>
-                                <TextBlock Text="Immo Status" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
+                                <TextBlock Text="Inmovilizador" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
                             </StackPanel>
                             <Border Style="{StaticResource ChangedPill}" Visibility="{Binding IsImmoModified, Converter={StaticResource BoolToVis}}">
-                                <TextBlock Text="Changed" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
+                                <TextBlock Text="Modificado" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
                             </Border>
                         </Grid>
 
@@ -390,7 +390,7 @@
                                 </TextBlock.Style>
                             </TextBlock>
                             <CheckBox Style="{StaticResource Switch}" IsChecked="{Binding IsImmoOn}" HorizontalAlignment="Center" Margin="0,14,0,0"
-                                      AutomationProperties.Name="Immobilizer">
+                                      AutomationProperties.Name="Inmovilizador">
                                 <CheckBox.LayoutTransform>
                                     <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
                                 </CheckBox.LayoutTransform>
@@ -400,11 +400,11 @@
                         <Border Grid.Row="2" Style="{StaticResource CardFooter}">
                             <Grid>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <TextBlock Text="Original value" Style="{StaticResource Caption}" FontSize="12.5"/>
+                                    <TextBlock Text="Valor original" Style="{StaticResource Caption}" FontSize="12.5"/>
                                     <TextBlock Text="{Binding ImmoOriginalText}" FontSize="12.5" FontWeight="SemiBold" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <Button Style="{StaticResource IconButton}" Content="&#xE7A7;" Command="{Binding ResetImmoCommand}" HorizontalAlignment="Right"
-                                        ToolTip="Restore the original setting" Visibility="{Binding IsImmoModified, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restore the original setting"/>
+                                        ToolTip="Restaurar el estado original" Visibility="{Binding IsImmoModified, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restaurar el estado original"/>
                             </Grid>
                         </Border>
                     </Grid>
@@ -423,10 +423,10 @@
                                 <Border Style="{StaticResource IconBadge}" Background="{DynamicResource OdometerTintBrush}">
                                     <TextBlock Text="&#xEC4A;" Style="{StaticResource IconText}" Foreground="{DynamicResource OdometerBrush}" HorizontalAlignment="Center"/>
                                 </Border>
-                                <TextBlock Text="Odometer" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
+                                <TextBlock Text="Kilometraje" Style="{StaticResource CardHeader}" Margin="12,0,0,0"/>
                             </StackPanel>
                             <Border Style="{StaticResource ChangedPill}" Visibility="{Binding IsMileageModified, Converter={StaticResource BoolToVis}}">
-                                <TextBlock Text="Changed" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
+                                <TextBlock Text="Modificado" Style="{StaticResource ChipText}" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
                             </Border>
                         </Grid>
 
@@ -435,7 +435,7 @@
                                         Visibility="{Binding HasFile, Converter={StaticResource BoolToVis}}">
                                 <TextBox Style="{StaticResource ValueInput}" MaxLength="7"
                                          Text="{Binding MileageText, UpdateSourceTrigger=PropertyChanged}"
-                                         AutomationProperties.Name="Mileage in kilometres"
+                                         AutomationProperties.Name="Kilometraje en kilómetros"
                                          b:InputAssist.DigitsOnly="True"
                                          b:InputAssist.HasError="{Binding MileageError, Converter={StaticResource HasValue}}"/>
                                 <TextBlock Text="km" FontFamily="{StaticResource DisplayFont}" FontSize="20" FontWeight="SemiBold"
@@ -449,13 +449,13 @@
                             <Grid>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                             Visibility="{Binding MileageError, Converter={StaticResource HasValueToVis}, ConverterParameter=Invert}">
-                                    <TextBlock Text="Original value" Style="{StaticResource Caption}" FontSize="12.5"/>
+                                    <TextBlock Text="Valor original" Style="{StaticResource Caption}" FontSize="12.5"/>
                                     <TextBlock Text="{Binding MileageOriginalText}" FontSize="12.5" FontWeight="SemiBold" Margin="10,0,0,0"/>
                                 </StackPanel>
                                 <TextBlock Text="{Binding MileageError}" Style="{StaticResource Caption}" FontSize="12.5" Foreground="{DynamicResource DangerBrush}" VerticalAlignment="Center"
                                            Visibility="{Binding MileageError, Converter={StaticResource HasValueToVis}}"/>
                                 <Button Style="{StaticResource IconButton}" Content="&#xE7A7;" Command="{Binding ResetMileageCommand}" HorizontalAlignment="Right"
-                                        ToolTip="Restore the original mileage" Visibility="{Binding CanResetMileage, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restore the original mileage"/>
+                                        ToolTip="Restaurar el kilometraje original" Visibility="{Binding CanResetMileage, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Restaurar el kilometraje original"/>
                             </Grid>
                         </Border>
                     </Grid>
@@ -464,16 +464,16 @@
 
             <!-- ======================== open and save -->
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Style="{StaticResource OpenButton}" Command="{Binding OpenCommand}" ToolTip="Open an EEPROM file (Ctrl+O)" AutomationProperties.Name="Open an EEPROM file">
+                <Button Style="{StaticResource OpenButton}" Command="{Binding OpenCommand}" ToolTip="Abrir un archivo EEPROM (Ctrl+O)" AutomationProperties.Name="Abrir un archivo EEPROM">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE838;" Style="{StaticResource IconText}" FontSize="18"/>
-                        <TextBlock Text="Open File" Margin="12,0,0,0"/>
+                        <TextBlock Text="Abrir archivo" Margin="12,0,0,0"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{StaticResource SaveButton}" Command="{Binding SaveCommand}" Margin="20,0,0,0" ToolTip="Save the changes to a new file (Ctrl+S)" AutomationProperties.Name="Save the changes to a new file">
+                <Button Style="{StaticResource SaveButton}" Command="{Binding SaveCommand}" Margin="20,0,0,0" ToolTip="Guardar los cambios en un archivo nuevo (Ctrl+S)" AutomationProperties.Name="Guardar los cambios en un archivo nuevo">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE74E;" Style="{StaticResource IconText}" FontSize="18"/>
-                        <TextBlock Text="Save File" Margin="12,0,0,0"/>
+                        <TextBlock Text="Guardar archivo" Margin="12,0,0,0"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -481,10 +481,10 @@
             <!-- ======================== footer -->
             <Grid Grid.Row="4">
                 <Button Style="{StaticResource GhostButton}" Command="{Binding OpenLinkCommand}" CommandParameter="https://www.paypal.com/donate/?hosted_button_id=SAAH5GHAH6T72"
-                        HorizontalAlignment="Left" Padding="10,0" ToolTip="Support the project" AutomationProperties.Name="Support the project">
+                        HorizontalAlignment="Left" Padding="10,0" ToolTip="Apoyar el proyecto" AutomationProperties.Name="Apoyar el proyecto">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xEB51;" Style="{StaticResource IconText}" FontSize="13" Foreground="#F472B6"/>
-                        <TextBlock Text="Donate" Margin="8,0,0,0" FontSize="13"/>
+                        <TextBlock Text="Donar" Margin="8,0,0,0" FontSize="13"/>
                     </StackPanel>
                 </Button>
 
@@ -508,13 +508,13 @@
                         </Ellipse.Style>
                     </Ellipse>
                     <TextBlock Text="{Binding StatusText}" Style="{StaticResource Caption}" FontSize="13" Margin="9,0,0,0" VerticalAlignment="Center"/>
-                    <Button Style="{StaticResource GhostButton}" Command="{Binding RevertCommand}" Content="Undo all" FontSize="13" Height="30" Padding="10,0" Margin="8,0,0,0"
-                            Foreground="{DynamicResource AccentBrush}" ToolTip="Undo all changes"
-                            Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Self}, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Undo all changes"/>
+                    <Button Style="{StaticResource GhostButton}" Command="{Binding RevertCommand}" Content="Deshacer todo" FontSize="13" Height="30" Padding="10,0" Margin="8,0,0,0"
+                            Foreground="{DynamicResource AccentBrush}" ToolTip="Deshacer todos los cambios"
+                            Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Self}, Converter={StaticResource BoolToVis}}" AutomationProperties.Name="Deshacer todos los cambios"/>
                 </StackPanel>
 
-                <Button Style="{StaticResource IconButton}" Width="38" Height="38" HorizontalAlignment="Right" ToolTip="Source code on GitHub"
-                        Command="{Binding OpenLinkCommand}" CommandParameter="https://github.com/muki01/Bosch_EDC15_EEPROM_Tool" AutomationProperties.Name="Source code on GitHub">
+                <Button Style="{StaticResource IconButton}" Width="38" Height="38" HorizontalAlignment="Right" ToolTip="Código fuente en GitHub"
+                        Command="{Binding OpenLinkCommand}" CommandParameter="https://github.com/muki01/Bosch_EDC15_EEPROM_Tool" AutomationProperties.Name="Código fuente en GitHub">
                     <Viewbox Width="20" Height="20">
                         <Path Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                               Data="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
@@ -528,7 +528,7 @@
                 Background="{DynamicResource DropHintBrush}" BorderBrush="{DynamicResource AccentBrush}" BorderThickness="2">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="&#xE898;" Style="{StaticResource IconText}" FontSize="40" Foreground="{DynamicResource AccentBrush}" HorizontalAlignment="Center"/>
-                <TextBlock Text="Drop to open the file" FontFamily="{StaticResource DisplayFont}" FontSize="20" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                <TextBlock Text="Suelta el archivo para abrirlo" FontFamily="{StaticResource DisplayFont}" FontSize="20" FontWeight="SemiBold" Margin="0,16,0,0"/>
             </StackPanel>
         </Border>
 
@@ -581,7 +581,7 @@
                 </Border>
                 <TextBlock Grid.Column="1" Text="{Binding ToastMessage}" TextWrapping="Wrap" Margin="12,3,8,0" FontSize="13.5"/>
                 <Button Grid.Column="2" Style="{StaticResource TitleBarButton}" Width="28" Height="28" VerticalAlignment="Top"
-                        Content="&#xE711;" Command="{Binding DismissToastCommand}" ToolTip="Dismiss" AutomationProperties.Name="Dismiss"/>
+                        Content="&#xE711;" Command="{Binding DismissToastCommand}" ToolTip="Descartar" AutomationProperties.Name="Descartar"/>
             </Grid>
         </Border>
 
@@ -607,36 +607,36 @@
                         <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
                             <TextBlock Text="Bosch EDC15 EEPROM Tool" FontFamily="{StaticResource DisplayFont}" FontSize="22" FontWeight="SemiBold"/>
                             <TextBlock Style="{StaticResource Caption}" FontSize="13">
-                                <Run Text="{Binding AppVersion, Mode=OneWay}"/><Run Text=" · by Muksin Muksin"/>
+                                <Run Text="{Binding AppVersion, Mode=OneWay}"/><Run Text=" · por Muksin Muksin"/>
                             </TextBlock>
                         </StackPanel>
                     </StackPanel>
 
                     <TextBlock Style="{StaticResource Caption}" FontSize="13.5" Foreground="{DynamicResource TextBrush}" Margin="0,22,0,0" LineHeight="21"
-                               Text="Changes the login code, immobilizer and mileage in the 24C04 EEPROM file (512 bytes) of VAG Bosch EDC15 diesel ECUs (EDC15P, EDC15P+, EDC15VM+) as used by Audi, Volkswagen, SEAT and Škoda."/>
+                               Text="Modifica el código PIN, el inmovilizador y el kilometraje en la EEPROM 24C04 (512 bytes) de centralitas diésel VAG Bosch EDC15 (EDC15P, EDC15P+, EDC15VM+) de Audi, Volkswagen, SEAT y Škoda."/>
 
                     <Border CornerRadius="14" Background="{DynamicResource WarningTintBrush}" Padding="16,13" Margin="0,20,0,0">
                         <TextBlock Style="{StaticResource Caption}" FontSize="12.5" Foreground="{DynamicResource TextBrush}" LineHeight="19"
-                                   Text="Always keep the original file. Correct the mileage only to match a replaced instrument cluster or ECU; changing it to mislead a buyer is illegal in most countries. The author accepts no responsibility for damage to ECUs or vehicles."/>
+                                   Text="Conserva siempre el archivo original. Corrige el kilometraje solo para reflejar la sustitución del cuadro o de la centralita; modificarlo para engañar a un comprador es ilegal en la mayoría de países. El autor no se responsabiliza de daños en centralitas o vehículos."/>
                     </Border>
 
                     <WrapPanel Margin="0,22,0,0">
                         <Button Style="{StaticResource SecondaryButton}" Command="{Binding OpenLinkCommand}" CommandParameter="https://github.com/muki01/Bosch_EDC15_EEPROM_Tool" Margin="0,0,10,0">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE943;" Style="{StaticResource IconText}" FontSize="14"/>
-                                <TextBlock Text="Source code" Margin="8,0,0,0"/>
+                                <TextBlock Text="Código fuente" Margin="8,0,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Style="{StaticResource SecondaryButton}" Command="{Binding OpenLinkCommand}" CommandParameter="https://www.paypal.com/donate/?hosted_button_id=SAAH5GHAH6T72" Margin="0,0,10,0">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xEB51;" Style="{StaticResource IconText}" FontSize="14" Foreground="#F472B6"/>
-                                <TextBlock Text="Donate" Margin="8,0,0,0"/>
+                                <TextBlock Text="Donar" Margin="8,0,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Style="{StaticResource SecondaryButton}" Command="{Binding OpenLinkCommand}" CommandParameter="mailto:muksin.muksin04@gmail.com">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE715;" Style="{StaticResource IconText}" FontSize="14"/>
-                                <TextBlock Text="Contact" Margin="8,0,0,0"/>
+                                <TextBlock Text="Contacto" Margin="8,0,0,0"/>
                             </StackPanel>
                         </Button>
                     </WrapPanel>
@@ -647,10 +647,10 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center" Margin="0,0,16,0">
-                            <TextBlock Text="GPL-3.0 · commercial license on request" Style="{StaticResource Caption}" FontSize="12"/>
+                            <TextBlock Text="GPL-3.0 · licencia comercial disponible" Style="{StaticResource Caption}" FontSize="12"/>
                             <TextBlock Text="© 2026 Muksin Muksin" Style="{StaticResource Caption}" FontSize="12" Margin="0,2,0,0"/>
                         </StackPanel>
-                        <Button Grid.Column="1" Style="{StaticResource PrimaryButton}" Content="Close" Width="110"
+                        <Button Grid.Column="1" Style="{StaticResource PrimaryButton}" Content="Cerrar" Width="110"
                                 Command="{Binding CloseOverlayCommand}" IsCancel="True"/>
                     </Grid>
                 </StackPanel>
@@ -672,7 +672,7 @@
                     <TextBlock Text="{Binding Confirmation.Title}" FontFamily="{StaticResource DisplayFont}" FontSize="19" FontWeight="SemiBold" Margin="0,18,0,6"/>
                     <TextBlock Text="{Binding Confirmation.Message}" Style="{StaticResource Caption}" FontSize="13.5"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,26,0,0">
-                        <Button Style="{StaticResource SecondaryButton}" Content="Cancel" Width="110" Command="{Binding CloseOverlayCommand}"/>
+                        <Button Style="{StaticResource SecondaryButton}" Content="Cancelar" Width="110" Command="{Binding CloseOverlayCommand}"/>
                         <Button Style="{StaticResource DangerButton}" Content="{Binding Confirmation.ConfirmText}" MinWidth="110" Margin="10,0,0,0"
                                 Command="{Binding ConfirmCommand}"/>
                     </StackPanel>
@@ -681,3 +681,4 @@
         </Grid>
     </Grid>
 </Window>
+
