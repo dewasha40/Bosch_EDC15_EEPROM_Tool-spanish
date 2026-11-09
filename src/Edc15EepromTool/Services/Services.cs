@@ -18,13 +18,13 @@ public interface IShellService
 
 public sealed class ShellService : IShellService
 {
-    private const string Filter = "EEPROM file (*.bin)|*.bin|All files (*.*)|*.*";
+    private const string Filter = "Archivo EEPROM (*.bin)|*.bin|Todos los archivos (*.*)|*.*";
 
     public string? PickFileToOpen()
     {
         var dialog = new OpenFileDialog
         {
-            Title = "Open an EDC15 EEPROM file",
+            Title = "Abrir un archivo EEPROM EDC15",
             Filter = Filter,
         };
         return dialog.ShowDialog() == true ? dialog.FileName : null;
@@ -34,7 +34,7 @@ public sealed class ShellService : IShellService
     {
         var dialog = new SaveFileDialog
         {
-            Title = "Save the modified EEPROM file",
+            Title = "Guardar el archivo EEPROM modificado",
             Filter = Filter,
             FileName = suggestedName,
             InitialDirectory = folder ?? string.Empty,
@@ -59,3 +59,4 @@ public sealed class ShellService : IShellService
         }
     }
 }
+
