@@ -88,7 +88,7 @@ public sealed class Edc15Eeprom
         if (bytes.Length != Size)
         {
             throw new InvalidEepromException(
-                $"The file is {bytes.Length:N0} bytes. A Bosch EDC15 24C04 EEPROM dump is exactly {Size} bytes.");
+                $"El archivo tiene {bytes.Length:N0} bytes. Un volcado EEPROM 24C04 de Bosch EDC15 debe tener exactamente {Size} bytes.");
         }
         return new Edc15Eeprom(bytes);
     }
@@ -99,7 +99,7 @@ public sealed class Edc15Eeprom
         if (length != Size)
         {
             throw new InvalidEepromException(
-                $"The file is {length:N0} bytes. A Bosch EDC15 24C04 EEPROM dump is exactly {Size} bytes.");
+                $"El archivo tiene {length:N0} bytes. Un volcado EEPROM 24C04 de Bosch EDC15 debe tener exactamente {Size} bytes.");
         }
         return FromBytes(File.ReadAllBytes(path));
     }
@@ -159,7 +159,7 @@ public sealed class Edc15Eeprom
     {
         if (km > MaxOdometerKm)
         {
-            throw new ArgumentOutOfRangeException(nameof(km), km, $"The mileage must be {MaxOdometerKm} km or less.");
+            throw new ArgumentOutOfRangeException(nameof(km), km, $"El kilometraje debe ser de {MaxOdometerKm} km o menos.");
         }
         var raw = km * OdometerScale;
         WriteOdometer(OdometerOffset, raw);
@@ -193,7 +193,7 @@ public sealed class Edc15Eeprom
     {
         if (code > MaxLoginCode)
         {
-            throw new ArgumentOutOfRangeException(nameof(code), code, $"The login code must be {MaxLoginCode} or less.");
+            throw new ArgumentOutOfRangeException(nameof(code), code, $"El código PIN debe ser {MaxLoginCode} o menos.");
         }
         WriteUInt16(_data, LoginCodeOffset, code);
         WriteUInt16(_data, LoginCodeMirrorOffset, code);
@@ -261,3 +261,4 @@ public sealed class Edc15Eeprom
         return true;
     }
 }
+
