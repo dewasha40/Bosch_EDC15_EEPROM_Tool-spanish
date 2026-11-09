@@ -1,28 +1,29 @@
-name: 💡 Feature request
-description: Suggest an idea or improvement
+name: "💡 Solicitar una mejora"
+description: "Propón una idea o mejora"
 labels: ["enhancement"]
 body:
   - type: textarea
     id: problem
     attributes:
-      label: What problem would this solve?
-      placeholder: In the workshop I often need to ...
+      label: "¿Qué problema resolvería?"
+      placeholder: "En el taller a menudo necesito..."
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
-      label: Proposed solution
-      description: Describe what you would like the program to do.
+      label: "Solución propuesta"
+      description: "Describe qué te gustaría que hiciera el programa."
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives considered
+      label: "Alternativas que has considerado"
   - type: checkboxes
     id: contribute
     attributes:
-      label: Contribution
+      label: "Colaboración"
       options:
-        - label: I would like to help implement this
+        - label: "Me gustaría ayudar a implementarlo"
+

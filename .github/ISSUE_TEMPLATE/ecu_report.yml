@@ -1,74 +1,75 @@
-name: 🚗 ECU report
-description: Tell us whether the tool works with your EDC15 ECU
-title: "[ECU] <Bosch part number> <vehicle>"
+name: "🚗 Informar de compatibilidad de ECU"
+description: "Indica si la herramienta funciona con tu centralita EDC15"
+title: "[ECU] <referencia Bosch> <vehículo>"
 labels: ["ecu-report"]
 body:
   - type: markdown
     attributes:
       value: |
-        Real-world reports show which EDC15 variants share the supported layout. Thank you! 🙌
+        Los informes de uso real permiten saber qué variantes EDC15 comparten la estructura compatible. ¡Gracias!
 
-        > ⚠️ **Do not attach the dump.** It contains the VIN, immobilizer ID and login code of the car.
+        > **No adjuntes el volcado.** Contiene el VIN, el identificador del inmovilizador y el código PIN del vehículo.
   - type: input
     id: bosch
     attributes:
-      label: Bosch part number
-      description: Printed on the ECU label, starts with 0281.
-      placeholder: e.g. 0281010390
+      label: "Referencia Bosch"
+      description: "Está impresa en la etiqueta de la centralita y empieza por 0281."
+      placeholder: "Por ejemplo: 0281010390"
     validations:
       required: true
   - type: input
     id: vag
     attributes:
-      label: VAG part number and ECU type
-      placeholder: e.g. 038906019FN, EDC15P+
+      label: "Referencia VAG y tipo de ECU"
+      placeholder: "Por ejemplo: 038906019FN, EDC15P+"
   - type: input
     id: vehicle
     attributes:
-      label: Vehicle
-      placeholder: Make, model, year and engine code (e.g. VW Golf IV 2002, ASZ)
+      label: "Vehículo"
+      placeholder: "Marca, modelo, año y código de motor (por ejemplo: VW Golf IV 2002, ASZ)"
     validations:
       required: true
   - type: dropdown
     id: eeprom
     attributes:
-      label: EEPROM chip on the board
+      label: "Chip EEPROM de la placa"
       options:
         - 24C04 (512 bytes)
         - 95040 / 95080 / 95160
-        - Not sure
+        - No lo sé
     validations:
       required: true
   - type: dropdown
     id: result
     attributes:
-      label: Result in the tool
+      label: "Resultado en la herramienta"
       options:
-        - ✅ The file opened and every value looks right
-        - ⚠️ The file opened, but some values look wrong
-        - ❌ The file was refused or shows "not recognised"
+        - "✅ El archivo se abrió y todos los valores parecen correctos"
+        - "⚠️ El archivo se abrió, pero algunos valores parecen incorrectos"
+        - "❌ No se pudo abrir o aparece «No reconocido»"
     validations:
       required: true
   - type: checkboxes
     id: values
     attributes:
-      label: Values that were read correctly
+      label: "Valores que se leyeron correctamente"
       options:
-        - label: Immobilizer status
-        - label: Mileage
-        - label: Login code
-        - label: VIN
-        - label: Immobilizer ID
+        - label: "Estado del inmovilizador"
+        - label: "Kilometraje"
+        - label: "Código PIN"
+        - label: "VIN"
+        - label: "Identificador del inmovilizador"
   - type: dropdown
     id: car
     attributes:
-      label: Did a saved file work in the car?
+      label: "¿Funcionó en el vehículo el archivo guardado?"
       options:
-        - Not tried
-        - Yes
+        - No lo he probado
+        - Sí
         - No
   - type: textarea
     id: notes
     attributes:
-      label: Notes
-      description: Anything else worth knowing, such as warnings the tool showed or how the dump was read.
+      label: "Notas"
+      description: "Añade cualquier otro dato útil, como los avisos que mostró la herramienta o cómo se leyó el volcado."
+
