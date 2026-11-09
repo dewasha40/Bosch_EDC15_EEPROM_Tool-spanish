@@ -1,26 +1,27 @@
-## Summary
+## Resumen
 
-<!-- What does this pull request change, and why? Link related issues with "Fixes #123". -->
+<!-- ¿Qué cambia esta solicitud y por qué? Enlaza las incidencias relacionadas con «Resuelve #123». -->
 
-## Type of change
+## Tipo de cambio
 
-- [ ] 🐛 Bug fix
-- [ ] ✨ New feature or support for another EDC15 variant
-- [ ] 🎨 User interface
-- [ ] 📝 Documentation
-- [ ] ♻️ Refactor / cleanup
+- [ ] 🐛 Corrección de un error
+- [ ] ✨ Función nueva o compatibilidad con otra variante EDC15
+- [ ] 🎨 Interfaz de usuario
+- [ ] 📝 Documentación
+- [ ] 🧹 Refactorización o limpieza
 
-## Testing
+## Pruebas
 
-<!-- How did you test this? Changes to how the dump is read or written need a unit test. -->
+<!-- ¿Cómo lo has probado? Los cambios en la lectura o escritura del volcado requieren pruebas unitarias. -->
 
-- [ ] `dotnet build -c Release` has no warnings
-- [ ] `dotnet test` passes
-- ECU tested on: <!-- e.g. Bosch 0281010390, EDC15P+, VW Golf IV 2002 — or "not tested on an ECU" -->
+- [ ] `dotnet build -c Release` termina sin avisos
+- [ ] `dotnet test` se ejecuta correctamente
+- ECU probada: <!-- Por ejemplo: Bosch 0281010390, EDC15P+, VW Golf IV 2002; o «sin probar en una ECU» -->
 
-## Checklist
+## Lista de comprobación
 
-- [ ] I followed the existing code style
-- [ ] I updated the README where needed
-- [ ] New offsets come with a source (datasheet, documented dump or tested ECU)
-- [ ] No EEPROM dumps, VINs, immobilizer IDs or login codes are included
+- [ ] He seguido el estilo del código existente
+- [ ] He actualizado el README cuando era necesario
+- [ ] Las nuevas posiciones incluyen su fuente (documentación técnica, volcado documentado o ECU probada)
+- [ ] No he incluido volcados EEPROM, VIN, identificadores del inmovilizador ni códigos PIN
+
