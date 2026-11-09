@@ -97,9 +97,9 @@ public sealed class MainViewModel : ObservableObject
 
     public string FilePath => _filePath ?? string.Empty;
 
-    public string Vin => _eeprom?.Vin ?? "Not found";
+    public string Vin => _eeprom?.Vin ?? "No encontrado";
 
-    public string ImmobilizerId => _eeprom?.ImmobilizerId ?? "Not found";
+    public string ImmobilizerId => _eeprom?.ImmobilizerId ?? "No encontrado";
 
     /// <summary>Problems found in the file; empty for a healthy dump.</summary>
     public ObservableCollection<string> Warnings { get; } = [];
@@ -123,7 +123,7 @@ public sealed class MainViewModel : ObservableObject
         }
     }
 
-    public string ImmoStatusText => !HasFile ? "No file open" : IsImmoOn ? "Immobilizer on" : "Immobilizer off";
+    public string ImmoStatusText => !HasFile ? "Sin archivo abierto" : IsImmoOn ? "Inmovilizador activado" : "Inmovilizador desactivado";
 
     public string ImmoOriginalText => _eeprom is null ? "—" : Describe(_eeprom.OriginalImmo);
 
@@ -203,14 +203,14 @@ public sealed class MainViewModel : ObservableObject
     public int PendingChanges { get => _pendingChanges; private set => SetProperty(ref _pendingChanges, value); }
 
     public string StatusText => !HasFile
-        ? "No file open"
+        ? "Sin archivo abierto"
         : HasErrors
-            ? "Correct the highlighted value to save"
+            ? "Corrige el valor resaltado para guardar"
             : PendingChanges switch
             {
-                0 => "No changes",
-                1 => "1 unsaved change",
-                var n => $"{n} unsaved changes",
+                0 => "Sin cambios",
+                1 => "1 cambio pendiente",
+                var n => $"{n} cambios pendientes",
             };
 
     public bool IsAboutOpen
@@ -270,7 +270,7 @@ public sealed class MainViewModel : ObservableObject
         {
             return true;
         }
-        Confirmation = new ConfirmRequest("Quit without saving?", $"Your changes to {FileName} have not been saved.", "Quit", close);
+        Confirmation = new ConfirmRequest("¿Salir sin guardar?", $"Los cambios de {FileName} no se han guardado.", "Salir", close);
         return false;
     }
 
@@ -290,7 +290,7 @@ public sealed class MainViewModel : ObservableObject
             _eeprom = Edc15Eeprom.Load(path);
             _filePath = path;
             SyncFromModel();
-            ShowToast($"Opened {FileName}", ToastKind.Info);
+            ShowToast($"Archivo abierto: {FileName}", ToastKind.Info);
         }
         catch (InvalidEepromException ex)
         {
@@ -298,7 +298,7 @@ public sealed class MainViewModel : ObservableObject
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            ShowToast($"The file could not be read: {ex.Message}", ToastKind.Error);
+            ShowToast($"No se pudo leer el archivo: {ex.Message}", ToastKind.Error);
         }
     }
 
@@ -310,7 +310,7 @@ public sealed class MainViewModel : ObservableObject
         }
 
         var name = Path.GetFileNameWithoutExtension(_filePath) ?? "EEPROM";
-        var suggested = name.EndsWith("_modified", StringComparison.OrdinalIgnoreCase) ? name + ".bin" : name + "_modified.bin";
+        var suggested = name.EndsWith("_modificado", StringComparison.OrdinalIgnoreCase) ? name + ".bin" : name + "_modificado.bin";
         var target = _shell.PickFileToSave(suggested, Path.GetDirectoryName(_filePath));
         if (target is null)
         {
@@ -323,11 +323,11 @@ public sealed class MainViewModel : ObservableObject
             _eeprom.AcceptChanges();
             _filePath = target;
             SyncFromModel();
-            ShowToast($"Saved as {FileName}", ToastKind.Success);
+            ShowToast($"Guardado como {FileName}", ToastKind.Success);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            ShowToast($"The file could not be saved: {ex.Message}", ToastKind.Error);
+            ShowToast($"No se pudo guardar el archivo: {ex.Message}", ToastKind.Error);
         }
     }
 
@@ -339,18 +339,18 @@ public sealed class MainViewModel : ObservableObject
         }
         _eeprom.RevertAll();
         SyncFromModel();
-        ShowToast("All changes were undone", ToastKind.Info);
+        ShowToast("Se han deshecho todos los cambios", ToastKind.Info);
     }
 
     private void CopyLoginCode()
     {
         if (_shell.CopyText(LoginCodeText))
         {
-            ShowToast($"Login code {LoginCodeText} copied", ToastKind.Success);
+            ShowToast($"Código PIN {LoginCodeText} copiado", ToastKind.Success);
         }
         else
         {
-            ShowToast("The clipboard is in use by another application", ToastKind.Error);
+            ShowToast("Otra aplicación está utilizando el portapapeles", ToastKind.Error);
         }
     }
 
@@ -358,7 +358,7 @@ public sealed class MainViewModel : ObservableObject
     {
         if (IsModified)
         {
-            Confirmation = new ConfirmRequest("Discard your changes?", $"Your changes to {FileName} have not been saved.", "Discard", action);
+            Confirmation = new ConfirmRequest("¿Descartar los cambios?", $"Los cambios de {FileName} no se han guardado.", "Descartar", action);
         }
         else
         {
@@ -396,12 +396,12 @@ public sealed class MainViewModel : ObservableObject
 
         if (MileageText.Length == 0)
         {
-            MileageError = "Enter the mileage in km.";
+            MileageError = "Introduce el kilometraje en km.";
             _eeprom.RestoreOdometer();
         }
         else if (!uint.TryParse(MileageText, NumberStyles.None, Invariant, out var km) || km > Edc15Eeprom.MaxOdometerKm)
         {
-            MileageError = $"The highest mileage is {Edc15Eeprom.MaxOdometerKm.ToString("N0", Invariant)} km.";
+            MileageError = $"El kilometraje máximo es {Edc15Eeprom.MaxOdometerKm.ToString("N0", Invariant)} km.";
             _eeprom.RestoreOdometer();
         }
         else
@@ -429,7 +429,7 @@ public sealed class MainViewModel : ObservableObject
         if (LoginCodeText.Length != 5 || LoginCodeText[0] != '0'
             || !ushort.TryParse(LoginCodeText, NumberStyles.None, Invariant, out var code) || code > Edc15Eeprom.MaxLoginCode)
         {
-            LoginCodeError = "5 digits, starting with 0";
+            LoginCodeError = "5 dígitos; debe empezar por 0";
             _eeprom.RestoreLoginCode();
         }
         else
@@ -514,19 +514,19 @@ public sealed class MainViewModel : ObservableObject
         Warnings.Clear();
         if (_eeprom.OriginalImmo == ImmoState.Unknown)
         {
-            Warnings.Add("The immobilizer setting in this file is not recognised. The switch shows Off until you change it.");
+            Warnings.Add("No se reconoce el estado del inmovilizador en este archivo. El interruptor muestra «Desactivado» hasta que lo cambies.");
         }
         if (!_eeprom.OriginalOdometerCopiesMatch)
         {
-            Warnings.Add("The file holds two different mileages. The first one is shown and both are replaced when you change it.");
+            Warnings.Add("El archivo contiene dos kilometrajes distintos. Se muestra el primero y, al cambiarlo, se sustituyen ambos.");
         }
         if (_eeprom.OriginalLoginCode > Edc15Eeprom.MaxLoginCode)
         {
-            Warnings.Add("The login code in this file is not a valid 0XXXX code. It is shown as stored.");
+            Warnings.Add("El código PIN de este archivo no tiene el formato válido 0XXXX. Se muestra tal como está almacenado.");
         }
         if (!_eeprom.OriginalLoginCodeCopiesMatch)
         {
-            Warnings.Add("The file holds two different login codes. The first one is shown and both are replaced when you change it.");
+            Warnings.Add("El archivo contiene dos códigos PIN distintos. Se muestra el primero y, al cambiarlo, se sustituyen ambos.");
         }
 
         OnPropertyChanged(nameof(HasWarnings));
@@ -599,8 +599,9 @@ public sealed class MainViewModel : ObservableObject
 
     private static string Describe(ImmoState state) => state switch
     {
-        ImmoState.On => "On",
-        ImmoState.Off => "Off",
-        _ => "not recognised",
+        ImmoState.On => "Activado",
+        ImmoState.Off => "Desactivado",
+        _ => "No reconocido",
     };
 }
+
